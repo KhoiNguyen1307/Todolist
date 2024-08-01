@@ -10,3 +10,16 @@ class Account(models.Model):
     
     def __str__(self):
         return self.username
+
+class Task(models.Model):
+    userid = models.ForeignKey(Account, on_delete=models.CASCADE)
+    title = models.CharField(max_length=30)
+    description = models.TextField()
+    startdate = models.DateField()
+    enddate = models.DateField()
+    level = models.CharField(max_length=20)
+    status = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+    
